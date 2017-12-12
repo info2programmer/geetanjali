@@ -1,0 +1,31 @@
+
+.br-theme-bars-movie .br-widget a {
+  display: block;
+  width: 60px;
+  height: 8px;
+  float: left;
+  background-color: rgba(27, 139, 249, 0.25);
+  margin: 1px;
+}
+.br-theme-bars-movie .br-widget a.br-active,
+.br-theme-bars-movie .br-widget a.br-selected {
+  background-color: #1b8bf9;
+}
+.br-theme-bars-movie .br-widget .br-current-rating {
+  clear: both;
+  width: 240px;
+  text-align: center;
+  font-weight: 600;
+  display: block;
+  padding: .5em 0;
+  color: #1b8bf9;
+  font-weight: 400;
+}
+.br-theme-bars-movie .br-readonly a {
+  cursor: default;
+}
+.br-theme-bars-movie .br-readonly a.br-active,
+.br-theme-bars-movie .br-readonly a.br-selected {
+  background-color: rgba(27, 139, 249, 0.25);
+}
+

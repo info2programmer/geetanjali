@@ -1,0 +1,10 @@
+[01-Aug-2016 05:24:03] PHP Parse error:  syntax error, unexpected '}' in /home1/ourwljco/public_html/beta/application/views/maincontents/package-details-view.php on line 1
+[01-Aug-2016 05:24:08] PHP Parse error:  syntax error, unexpected '}' in /home1/ourwljco/public_html/beta/application/views/maincontents/package-details-view.php on line 1
+[01-Aug-2016 05:24:12] PHP Parse error:  syntax error, unexpected '}' in /home1/ourwljco/public_html/beta/application/views/maincontents/package-details-view.php on line 1
+[24-Aug-2016 05:33:49] PHP Fatal error:  Call to a member function save_data() on a non-object in /home1/projukti/public_html/wbbudgebudgecollege/beta1/application/controllers/admin/Manage_page_content.php on line 373
+[24-Aug-2016 23:48:12] PHP Warning:  Unexpected character in input:  ''' (ASCII=39) state=1 in /home1/projukti/public_html/wbbudgebudgecollege/beta1/application/views/admin/elements/left-sidebar.php on line 119
+[24-Aug-2016 23:48:12] PHP Parse error:  syntax error, unexpected $end in /home1/projukti/public_html/wbbudgebudgecollege/beta1/application/views/admin/elements/left-sidebar.php on line 119
+[17-Jan-2017 05:40:52] PHP Fatal error:  Call to a member function find_data() on a non-object in /home7/bonginee/public_html/application/controllers/admin/Manage_placement.php on line 21
+[17-Jan-2017 05:40:57] PHP Fatal error:  Call to a member function find_data() on a non-object in /home7/bonginee/public_html/application/controllers/admin/Manage_placement.php on line 21
+[17-Jan-2017 22:29:28] PHP Warning:  POST Content-Length of 61218757 bytes exceeds the limit of 52428800 bytes in Unknown on line 0
+[18-Jan-2017 12:38:47] PHP Fatal error:  Call to undefined method CI_Loader::session_all_userdata() in /home7/bonginee/public_html/application/views/maincontents/home.php on line 38
