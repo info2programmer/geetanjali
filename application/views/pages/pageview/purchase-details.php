@@ -55,7 +55,8 @@
                 <td><?php echo $row['p_bill_total']; ?></td>               
                 <td>
                 	<a href="<?php echo base_url();?>view/PurchasePreview/<?php echo $row['p_bill_id']; ?>" onclick="return confirm('Are you sure ?');"><i class="zmdi zmdi-print"></i></a>
-                	<a href="<?php echo base_url();?>index.php/delete/Purchase/<?php echo $row['p_bill_id']; ?>" onclick="return confirm('Are you sure ?');"><i class="zmdi zmdi-delete"></i></a>
+                  <a href="<?php echo base_url();?>index.php/delete/Purchase/<?php echo $row['p_bill_id']; ?>" onclick="return confirm('Are you sure ?');"><i class="zmdi zmdi-delete"></i></a>
+                  <a href="<?php echo base_url();?>news/<?php echo $row['invoice_img']; ?>" target="_blank" ><i class="zmdi zmdi-file"></i></a>
 					<button type="button" class="btn btn-inverse-primary waves-effect waves-light " data-toggle="tooltip" data-placement="top" title=""><a href="<?php echo base_url();?>View/PurchaseItems/<?php echo $row['p_bill_id']; ?>" style="color:#FF0000;">See Details</a></button>
                 </td>
               </tr>

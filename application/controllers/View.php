@@ -438,5 +438,12 @@ $this->load->model('base_model');
 	}
 	
 	}
+
+	// This function For View Purchase Invoice Image
+	// public function PurchaseImage($image_url)
+	// {
+	// 	// echo "Hii";
+	// 	echo "<img src='".base_url()."news/".$image_url."' >";
+	// } 
 		
 }
