@@ -465,6 +465,12 @@ $bill_numb = $this->input->post('purchase-bno');
 		$item_s_gst = $this->input->post('item-gst');
 		$item_s_sgst = $this->input->post('item-ost');
 		$item_s_price_wgst = $this->input->post('item-totsal');
+		$imges = $_FILES["invice-copy"]["name"];
+		$exp = explode('.',$imges);
+		$image = $exp[0].time().'.'.$exp[1];
+		$temp = $_FILES["invice-copy"]["tmp_name"];
+		// Image Upload Here
+		$this->base_model->news_file_upload($image,$temp);
 		
 		//$expItem = explode(',',$item_name);
 		$cntExp = count($item_name)-1;
@@ -477,7 +483,8 @@ $bill_numb = $this->input->post('purchase-bno');
 			'p_bill_date' => $dateb,
 			'p_bill_creation_date' => $create_date.' '.$time,
 			'p_bill_total' => array_sum($item_p_total),
-			'p_bill_total_sale' => $total
+			'p_bill_total_sale' => $total,
+			'invoice_img' => $image
 			
 		);
 		

@@ -154,6 +154,17 @@
                             </div>
                         </div>
 
+                        <div class="row">
+                            <div class="col-sm-2 text-right p-t-15">
+                                Select Invoice Copy
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="md-input-wrapper">
+                                    <input type="file" class="md-form-control required" placeholder="Net Total" name="invice-copy"/>
+                                </div>
+                            </div>
+                        </div>
+
                         <button type="submit" class="btn btn-success waves-effect waves-light m-r-30">Submit</button>
                     </div>
                 </form>
