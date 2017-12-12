@@ -66,14 +66,14 @@
                                 <input type="text" class="md-form-control required" placeholder="Labour-Pan-No" name="empdesig"/>
                             </div>
                            <div class="md-input-wrapper">
-                                <textarea class="md-form-control required" cols="2" rows="3" placeholder="Labour-Address" name="empadd"></textarea>
+                                <textarea class="md-form-control" cols="2" rows="3" placeholder="Labour-Address" name="empadd"></textarea>
                             </div>
                              <div class="md-group-add-on">
                                     <span class="md-add-on-file">
                                         <button class="btn btn-success waves-effect waves-light">Labour Image</button>
                                     </span>
                                 <div class="md-input-file">
-                                    <input type="file" class="required" name="cimg" id="cimg"/>
+                                    <input type="file" class="" name="cimg" id="cimg"/>
                                     <input type="text" class="md-form-control md-form-file">
                                     <label class="md-label-file">Upload Image</label>
                                 </div>
