@@ -66,7 +66,7 @@
                                 <input type="number" class="md-form-control required" placeholder="Wage-Amount" name="empdesig"/>
                             </div>
                            <div class="md-input-wrapper">
-                                <textarea class="md-form-control required" cols="2" rows="3" placeholder="Work" name="txtWork"></textarea>
+                                <textarea class="md-form-control" cols="2" rows="3" placeholder="Work" name="txtWork"></textarea>
                             </div>
                             <div class="md-input-wrapper">
                                  <select class="md-form-control required" name="ddlPaymentMode">
