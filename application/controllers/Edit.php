@@ -339,17 +339,17 @@ $this->load->model('base_model','Common_model');
 				$table['name'] = 'td_employee';
 				$data = $this->Common_model->save_data($table,$fields,$id,'emp_id');
 			
-					if($this->input->post('emp_sal')!=$empsal)
-					{
-						$fields1 = array(
-							'emp_id' => $id,
-							'present_sal' => $this->input->post('emp_sal'),
-							'prev_sal' => $empsal
-							);	
+					// if($this->input->post('emp_sal')!=$empsal)
+					// {
+					// 	$fields1 = array(
+					// 		'emp_id' => $id,
+					// 		'present_sal' => $this->input->post('emp_sal'),
+					// 		'prev_sal' => $empsal
+					// 		);	
 			
-						$table['name'] = 'employee_salary';
-						$data = $this->Common_model->save_data($table,$fields1,'','emp_sal_id');	
-					}
+					// 	$table['name'] = 'employee_salary';
+					// 	$data = $this->Common_model->save_data($table,$fields1,'','emp_sal_id');	
+					// }
 				$this->session->set_flashdata('success_message','Employee details successfully updated');	
 				redirect('view/Employee');
 		}

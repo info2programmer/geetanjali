@@ -296,15 +296,15 @@ public function Employee()
 		$service = $this->base_model->form_post('td_employee',$fields);
 		if($service)
 		{
-			$last_id = $this->db->insert_id();
-			$fields1 = array(
-							'emp_id' => $last_id,
-							'present_sal' => $salary,
-							'prev_sal' => 0
-							);	
+			// $last_id = $this->db->insert_id();
+			// $fields1 = array(
+			// 				'emp_id' => $last_id,
+			// 				'present_sal' => $salary,
+			// 				'prev_sal' => 0
+			// 				);	
 			
-						$table['name'] = 'employee_salary';
-						$data = $this->Common_model->save_data($table,$fields1,'','emp_sal_id');
+			// $table['name'] = 'employee_salary';
+			// $data = $this->Common_model->save_data($table,$fields1,'','emp_sal_id');
 						
 		$this->base_model->file_upload2($imges,$temp);
 		$this->session->set_flashdata('success_message', 'Details Saved Successfully');

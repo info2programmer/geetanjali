@@ -15,13 +15,12 @@
   <!-- Sidebar Menu-->
   <ul class="sidebar-menu">
   <li class="active treeview"> <a class="waves-effect waves-dark" href="<?php echo base_url();?>user/"> <i class="icon-speedometer"></i><span> Dashboard</span></a></li>
-   <li class="nav-level">HRM</li>
-    <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-film"></i> <span> HR Management</span><i class="icon-arrow-down"></i></a>
+   <li class="nav-level">Labour Management</li>
+    <li class="treeview"><a class="waves-effect waves-dark" href="<?php echo base_url();?>view/Employee"> <i class="icon-film"></i><span>Labour </span> <i class="icon-arrow-down"></i></a>
       <ul class="treeview-menu">
-     <!--  <li><a class="waves-effect waves-dark" href="<?php //echo base_url();?>attendance/"><i class="icon-arrow-right"></i> Upload Attendance</a></li> -->
-      
-        <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>view/Employee"><i class="icon-arrow-right"></i> Employee Details</a></li>
-        <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>View/Incentives"><i class="icon-arrow-right"></i> Incentives Details</a></li>
+      <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>view/Employee"><i class="icon-arrow-right"></i> Labour Details</a></li>
+        <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>view/Employee"><i class="icon-arrow-right"></i> Daily Wages Bill</a></li>
+        <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>View/Incentives"><i class="icon-arrow-right"></i> Daily Wages Report</a></li>
       </ul>
     </li>
     <li class="nav-level">Software Management</li>
