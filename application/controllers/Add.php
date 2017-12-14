@@ -748,21 +748,26 @@ $fields_inc = array(
 			// If Post Request Then This Block Will Be Execute
 			$object=array(
 				'emp_id' => $this->input->post('ddlEmployee'),
-				'wage' => $this->input->post('empdesig'),
+				'wage' => $this->input->post('txtTotal'),
 				'work' => $this->input->post('txtWork'),
-				'type' => $this->input->post('ddlPaymentMode')
+				'type' => $this->input->post('ddlPaymentMode'),
+				'date' => date('Y-m-d')
 			);
 			$this->base_model->form_post('tbl_daily_wage',$object);
+			$wage_id=$this->db->insert_id();
+
+			// Update On Payamount Table
+			$fields=array(
+				'foregin_wage_id' => $wage_id,
+				'paid_amount' => $this->input->post('txtPay'),
+				'due_amount' => (int)$this->input->post('txtTotal')-(int)$this->input->post('txtPay')
+			);
+			$this->base_model->form_post('tbl_payment_data',$fields);
+
 			$this->session->set_flashdata('success_log', 'Wage Submit Successfully');
 			redirect('add/EmployeeWage','refresh');
 		}
-		// $data=array(
-		// 	'employee_list' => $this->db->query("SELECT * FROM td_employee")->result(),
-		// 	'head' => $this->load->view('elements/head','',true),
-		// 	'header' => $this->load->view('elements/header','',true),
-		// 	'left_sidebar' => $this->load->view('elements/left-sidebar','',true),
-		// 	'maincontent' => $this->load->view('pageview/employee_wage_view',$data,true)
-		// );;
+		
 		$data['employee_list'] = $this->db->query("SELECT * FROM td_employee")->result();
 		$data['head'] = $this->load->view('elements/head','',true);
 		$data['header'] = $this->load->view('elements/header','',true);

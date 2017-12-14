@@ -276,6 +276,22 @@ public function Bank()
 	
 	}
 
+	// This Function To Update Deu Amount
+	public function PayDeuAmount($id,$amount)
+	{
+		$object=array(
+			'paid_amount' => $amount,
+			'due_amount' => 0
+		);
+		$this->db->where('id', $id);
+		$this->db->update('tbl_payment_data', $object);
+		
+		$this->session->set_flashdata('success_log', 'Pay Update Successfully');
+		
+		redirect('view/WageReport');
+		
+	}
+
 	
 	
 }

@@ -46,12 +46,13 @@
                             <div class="col-sm-4">
                                 <div class="md-input-wrapper multisugg">
                                     <div class="md-input-wrapper multisugg">
-                                        <input type="text" class="md-form-control required" placeholder="Supplier Name" name="sup_name"/>
-                                        <ul class="md-form-control">
-                                        <?php foreach($supplier as $splr){?>
-                                            <li><?php echo $splr['clname'];?>-<?php echo $splr['cl_id'];?></li>
+                                        <select class="md-form-control required" name="sup_name">
+                                            <option value="" hidde>Select Supplier</option>
+                                            <?php foreach($supplier as $splr){?>
+                                            <option value="<?php echo $splr['clname'];?>-<?php echo $splr['cl_id'];?>"><?php echo $splr['clname'];?>-<?php echo $splr['cl_id'];?></option>
                                             <?php }?>
-                                        </ul>
+                                        </select>
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -107,12 +108,12 @@
                                     </div>
                                     <div class="col-sm-1">
                                         <div class="md-input-wrapper">
-                                            <input type="text" class="md-form-control" placeholder="Total" name="item-total[]"/>
+                                            <input type="text" class="md-form-control" placeholder="Total" name="item-total[]" onblur="funChange(this.value)"/>
                                         </div>
                                     </div>
-                                    <div class="col-sm-1">
+                                    <div class="col-sm-1" style="display:hide">
                                         <div class="md-input-wrapper">
-                                            <input type="text" class="md-form-control required" placeholder="S Price" name="item-sale[]"/>
+                                            <input type="hidden" class="md-form-control required" placeholder="S Price" id="item-sale"  name="item-sale[]"/>
                                         </div>
                                     </div>
                                     <div class="col-sm-1">
@@ -395,5 +396,10 @@
             }
             $('[name="all-total"]').val(totall);
         })
+    }
+
+    function funChange(amt)
+    {
+        document.getElementById("item-sale").value=amt;
     }
 </script>

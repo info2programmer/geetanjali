@@ -35,7 +35,7 @@
                         </div>
                         
                         <!-- end of modal -->
-						<form name="companyform" id="signupform" method="post" action="<?php echo base_url();?>index.php/add/EmployeeWage" enctype="multipart/form-data">
+						<form name="companyform" id="signupform" method="post" action="<?php echo base_url();?>index.php/view/EmployeeWage" enctype="multipart/form-data">
                         <div class="card-block">
                             <div class="row">
                             <div class="col-sm-12">
@@ -62,18 +62,22 @@
                             <!-- <div class="md-input-wrapper">
                                 <input type="text" class="md-form-control validate-number required" placeholder="Labour-Phone" name="empphn"/>
                             </div> -->
-                            <div class="md-input-wrapper">
-                                <input type="number" class="md-form-control required" placeholder="Wage-Amount" name="empdesig"/>
-                            </div>
+                                <div class="md-input-wrapper">
+                                    <input type="number" class="md-form-control required" placeholder="Total-Wage-Amount" name="txtTotal"/>
+                                </div>
+                                <div class="md-input-wrapper">
+                                    <input type="number" class="md-form-control required" placeholder="Pay-Wage-Amount" name="txtPay"/>
+                                </div>
+                            
                            <div class="md-input-wrapper">
                                 <textarea class="md-form-control" cols="2" rows="3" placeholder="Work" name="txtWork"></textarea>
                             </div>
                             <div class="md-input-wrapper">
                                  <select class="md-form-control required" name="ddlPaymentMode">
-                                            <option value="">Payment Mode</option>
-                                            <option value="Advance">Advance</option>
-                                            <option value="Full">Full</option>
-                                        </select>
+                                        <option value="" selected hidden>Select Payment Mode</option>
+                                        <option value="Advance">Advance</option>
+                                        <option value="Full">Full</option>
+                                 </select>
                             </div>
                              
                             <!-- <div class="md-input-wrapper">

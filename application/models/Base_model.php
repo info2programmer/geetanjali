@@ -282,6 +282,29 @@ return true;
        
    }
 
+
+//    This Function For Get Payment Data
+public function get_payment_history($txtFromDate,$txtToDate,$ddlEmployee)
+{
+    if($ddlEmployee!="")
+    {
+        $this->db->order_by('wage_id', 'desc');        
+        $this->db->where('tbl_daily_wage.emp_id', $ddlEmployee);
+    }
+    if($txtFromDate!="" && $txtToDate!="")
+    {
+        $this->db->where('date >=', $txtFromDate);
+        $this->db->where('date <=', $txtToDate);
+    }
+    $this->db->select('tbl_daily_wage.*, tbl_payment_data.*,td_employee.name as name');
+    $this->db->from('tbl_daily_wage');
+    $this->db->join('tbl_payment_data', 'tbl_payment_data.foregin_wage_id = tbl_daily_wage.wage_id', 'INNER');
+    $this->db->join('td_employee','tbl_daily_wage.emp_id=td_employee.emp_id');
+    $query=$this->db->get();
+    return $query->result();
+    
+}
+
 }
 
 ?>

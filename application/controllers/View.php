@@ -439,11 +439,29 @@ $this->load->model('base_model');
 	
 	}
 
-	// This function For View Purchase Invoice Image
-	// public function PurchaseImage($image_url)
-	// {
-	// 	// echo "Hii";
-	// 	echo "<img src='".base_url()."news/".$image_url."' >";
-	// } 
+	// This function For Report Listing
+	public function WageReport()
+	{
+		if($this->input->post('btnSubmit')=="Submit"){
+			// if post data here then this blog will execute
+			
+			// Get All Data Here
+			$ddlEmployee=$this->input->post('ddlEmployee');
+			$txtFromDate=$this->input->post('txtFromDate');
+			$txtToDate=$this->input->post('txtToDate');
+
+			$data['listing_date'] = $this->base_model->get_payment_history($txtFromDate,$txtToDate,$ddlEmployee);
+			// echo $this->db->last_query();
+			// die;
+		}
+
+		// $data['rows'] = $this->base_model->show_data('td_employee','*','')->result_array();
+		$data['employee_list'] = $this->db->query("SELECT * FROM td_employee")->result();
+		$data['head'] = $this->load->view('elements/head','',true);
+		$data['header'] = $this->load->view('elements/header','',true);
+		$data['left_sidebar'] = $this->load->view('elements/left-sidebar','',true);
+		$data['maincontent']=$this->load->view('pages/wage_report',$data,true);
+		$this->load->view('layout-after-login',$data);
+	} 
 		
 }
