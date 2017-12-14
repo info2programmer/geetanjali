@@ -80,27 +80,27 @@
       </ul>
     </li> -->
   
-    <li class="nav-level">Reports</li>
-    <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-film"></i> <span> Sales Reports</span><i class="icon-arrow-down"></i></a>
-      <ul class="treeview-menu">
+    <!-- <li class="nav-level">Reports</li> -->
+    <!-- <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-film"></i> <span> Sales Reports</span><i class="icon-arrow-down"></i></a>
+      <ul class="treeview-menu"> -->
         <!-- <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>reports/SaleReport"><i class="icon-arrow-right"></i>Sale Report / Day</a></li>
         <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>reports/PersonSaleReport"><i class="icon-arrow-right"></i>Sale Report / Person</a></li>
         
         <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>reports/RouteSaleReport"><i class="icon-arrow-right"></i>Sale Report / Route</a></li>
         <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>reports/DailyCollectionSheet"><i class="icon-arrow-right"></i>Daily Collection Sheet</a></li> -->
         <!-- <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>reports/GST_report"><i class="icon-arrow-right"></i>GST Report</a></li> -->
-      </ul>
+      <!-- </ul>
     </li>
     <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-film"></i> <span> Purchase Reports</span><i class="icon-arrow-down"></i></a>
       <ul class="treeview-menu">
       
         <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>reports/PurchaseReport"><i class="icon-arrow-right"></i>Purchase Report / Day</a></li>
-        <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>reports/SupplierPurchaseReport"><i class="icon-arrow-right"></i>Purchase Report / Supplier</a></li>
+        <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>reports/SupplierPurchaseReport"><i class="icon-arrow-right"></i>Purchase Report / Supplier</a></li> -->
         
         <!--<li><a class="waves-effect waves-dark" href="<?php echo base_url();?>reports/ItemStockReport"><i class="icon-arrow-right"></i>Stock Report / Item</a></li>-->
-      </ul>
+      <!-- </ul>
     </li>
-    <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>reports/ChartReport"><i class="icon-arrow-right"></i>Chart Report</a></li>
+    <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>reports/ChartReport"><i class="icon-arrow-right"></i>Chart Report</a></li> -->
    <!-- <li class="nav-level">Notifications</li>
    <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>settings/RouteDetails"><i class="icon-arrow-right"></i>Notification Details</a></li>-->
        
