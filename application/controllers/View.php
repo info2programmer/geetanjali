@@ -463,5 +463,16 @@ $this->load->model('base_model');
 		$data['maincontent']=$this->load->view('pages/wage_report',$data,true);
 		$this->load->view('layout-after-login',$data);
 	} 
-		
+
+	//This Function For Project Management
+	public function Project()
+	{
+		// Get All Project
+		$data['project_list'] = $this->base_model->get_project_amount(); 
+		$data['head'] = $this->load->view('elements/head','',true);
+		$data['header'] = $this->load->view('elements/header','',true);
+		$data['left_sidebar'] = $this->load->view('elements/left-sidebar','',true);
+		$data['maincontent']=$this->load->view('pages/project_details_view',$data,true);
+		$this->load->view('layout-after-login',$data);
+	} 
 }

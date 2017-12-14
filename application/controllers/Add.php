@@ -775,4 +775,32 @@ $fields_inc = array(
 		$data['maincontent']=$this->load->view('pages/pageview/employee_wage_view',$data,true);
 		$this->load->view('layout-after-login',$data);   
 	}
+
+	// This Function For Create New Projects
+	public function Projects()
+	{
+		if($this->input->post('btnSubmit')=="Submit")
+		{
+			$imges = $_FILES["cimg"]["name"];
+			$temp = $_FILES["cimg"]["tmp_name"];
+			//Get All Value
+			$object=array(
+				'project_name' => $this->input->post('txtProjectName'),
+				'Project_value' => $this->input->post('txtProjectvalue'),
+				'current_amount' => $this->input->post('txtProjectvalue'),
+				'project_invoice' => $imges,
+				'company_id' => $this->session->userdata('user_id')
+			);
+			$service = $this->base_model->form_post('tbl_project',$object);
+			$this->base_model->file_upload2($imges,$temp);
+			$this->session->set_flashdata('success_log', 'Project Create Successfully');
+			redirect('Add/Projects');
+			
+		}
+		$data['head'] = $this->load->view('elements/head','',true);
+		$data['header'] = $this->load->view('elements/header','',true);
+		$data['left_sidebar'] = $this->load->view('elements/left-sidebar','',true);
+		$data['maincontent']=$this->load->view('pages/create_project_view',$data,true);
+		$this->load->view('layout-after-login',$data);   
+	}
 }

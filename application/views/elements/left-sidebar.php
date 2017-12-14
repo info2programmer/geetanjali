@@ -18,12 +18,13 @@
 
       <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-film"></i> <span> Settings</span><i class="icon-arrow-down"></i></a>
       <ul class="treeview-menu">
-        <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>view/Company"><i class="icon-arrow-right"></i> Company Details</a></li>
+        <!-- <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>view/Company"><i class="icon-arrow-right"></i> Company Details</a></li> -->
         <!-- <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>view/Bank"><i class="icon-arrow-right"></i> Bank Details</a></li> -->
         <!-- <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>view/incentiveSettings"><i class="icon-arrow-right"></i> Incentives Details</a></li>
         <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>view/Route"><i class="icon-arrow-right"></i> Route Details</a></li>
         <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>view/AssignedRoute"><i class="icon-arrow-right"></i> Route Assign</a></li> -->
         <!-- <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>view/Client"><i class="icon-arrow-right"></i> Client Details</a></li> -->
+        <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>view/Project"><i class="icon-arrow-right"></i> Project Management</a></li>
         <li class="<?php if($this->uri->segment(2)=='WeightUnit') { ?>active <?php } ?>"><a class="waves-effect waves-dark" href="<?php echo base_url();?>view/WeightUnit"><i class="icon-arrow-right"></i> Unit Management</a></li>
       </ul>
     </li>

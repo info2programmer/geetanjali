@@ -141,7 +141,7 @@
     }
 	 function file_upload2($img,$tmp)
     {
-        $image_path = 'uploads/company/';
+        $image_path = 'uploads/invoice/';
 		if(move_uploaded_file($tmp,$image_path.$img))
 		return true;
     }
@@ -303,6 +303,17 @@ public function get_payment_history($txtFromDate,$txtToDate,$ddlEmployee)
     $query=$this->db->get();
     return $query->result();
     
+}
+
+
+// this function to get project amount
+public function get_project_amount()
+{
+   $this->db->select('company_name, tbl_project.*');   
+   $this->db->from('tbl_project');
+   $this->db->join('td_users', 'td_users.id = tbl_project.company_id', 'inner');
+   $query=$this->db->get();
+   return $query->result();
 }
 
 }
