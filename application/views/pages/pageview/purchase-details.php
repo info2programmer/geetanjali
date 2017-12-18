@@ -28,6 +28,7 @@
                 <th>Bill No</th>
                 <th>Bill Date</th>
                 <th>Supplier Name</th>
+                <th>Project Name</th>
                 <th>Bill Total</th>
                 <th>Action</th>
               </tr>
@@ -38,6 +39,7 @@
                 <th>Bill No</th>
                 <th>Bill Date</th>
                 <th>Supplier Name</th>
+                <th>Project Name</th>
                 <th>Bill Total</th>
                 <th>Action</th>
               </tr>
@@ -47,11 +49,15 @@
 			$supplr = $this->db->query('SELECT * FROM td_supplier WHERE cl_id='.$row['supplier_name'])->result_array();
 			$billTotal = $this->db->query('SELECT SUM(item_p_total_amt) as TotBillAmt FROM td_purchase_item WHERE pid='.$row['p_bill_id'])->result_array();
 			?>
+      <?php 
+        $item=$this->base_model->get_porjectname_byid($row['project_id'])
+      ?>
               <tr>
               	<td><?php echo $i++; ?></td>
                 <td><?php echo $row['p_bill_no']; ?></td>
                 <td><?php echo $row['p_bill_date']; ?></td>
                 <td><?php echo $supplr[0]['clname']; ?></td>
+                <td><?php echo $item[0]['project_name'] ?></td>
                 <td><?php echo $row['p_bill_total']; ?></td>               
                 <td>
                 	<a href="<?php echo base_url();?>view/PurchasePreview/<?php echo $row['p_bill_id']; ?>" onclick="return confirm('Are you sure ?');"><i class="zmdi zmdi-print"></i></a>

@@ -254,7 +254,8 @@ public function Route()
 			'cgst' => $clgst,
 			'cladd' => $cladd,
 			'addate' => date('Y-m-d'),
-			'adby' => $this->session->userdata('username')
+			'adby' => $this->session->userdata('username'),
+			'company_id' => $this->session->userdata('user_id')
 		);
 		$service = $this->base_model->form_post('td_supplier',$fields);
 		if($service)
@@ -469,6 +470,7 @@ $bill_numb = $this->input->post('purchase-bno');
 		$exp = explode('.',$imges);
 		$image = $exp[0].time().'.'.$exp[1];
 		$temp = $_FILES["invice-copy"]["tmp_name"];
+		$project_id = $this->input->post('ddlProject');
 		// Image Upload Here
 		$this->base_model->news_file_upload($image,$temp);
 		
@@ -484,7 +486,9 @@ $bill_numb = $this->input->post('purchase-bno');
 			'p_bill_creation_date' => $create_date.' '.$time,
 			'p_bill_total' => array_sum($item_p_total),
 			'p_bill_total_sale' => $total,
-			'invoice_img' => $image
+			'invoice_img' => $image,
+			'company_id' => $this->session->userdata('user_id'),
+			'project_id' => $project_id
 			
 		);
 		
@@ -509,6 +513,22 @@ $bill_numb = $this->input->post('purchase-bno');
 		);
 		$service1 = $this->base_model->form_post('td_finance',$fields_finance);
 		//$cid = $this->db->insert_id();
+
+		// this function for update project current amount
+		$this->update_project_amount($project_id,$total);
+
+		// This Function For Indser Deduct Amount History
+		$particulars="Purchase Invoice- ".$bill_numb." and deduct amount ".$total;
+		$decuttion=array(
+			'project_id' => $project_id,
+			'company_id' => $this->session->userdata('user_id'),
+			'amount' => $total,
+			'particulars' => $particulars,
+			'date' => date('Y-m-d'),
+			'time' => date('h:i:sa')
+		);
+
+		$this->base_model->insert_deduction_history($decuttion);
 		
 		if($service1)
 		{
@@ -546,7 +566,7 @@ $bill_numb = $this->input->post('purchase-bno');
 			'item_single_sale_wgst' => $item_s_sing_price_wgst,
 			'item_single_sale_wogst' => $item_s_sing_price_wogst,
 			'pid' => $cid,
-			
+			'company_id' => $this->session->userdata('user_id')
 		);
 		$service2 = $this->base_model->form_post('td_purchase_item',$fields1);
 		}
@@ -559,6 +579,21 @@ $bill_numb = $this->input->post('purchase-bno');
 		}
 		}
 		
+	}
+
+	// this function for update project_current amount
+	private function update_project_amount($project_id,$amount){
+		$project_current_amount=$this->db->query('SELECT * FROM tbl_project WHERE project_id='.$project_id)->result_array();
+		// echo $project_current_amount ;
+		// die;
+		$amt=(float)$project_current_amount[0]['current_amount']-(float)$amount;
+
+		$object=array(
+			'current_amount' =>$amt
+		);
+		$this->db->where('project_id', $project_id);
+		$this->db->update('tbl_project', $object);
+
 	}
 	
 	public function sales()

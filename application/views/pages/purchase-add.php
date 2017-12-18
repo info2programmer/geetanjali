@@ -47,7 +47,7 @@
                                 <div class="md-input-wrapper multisugg">
                                     <div class="md-input-wrapper multisugg">
                                         <select class="md-form-control required" name="sup_name">
-                                            <option value="" hidde>Select Supplier</option>
+                                            <option value="" hidden selected>Select Supplier</option>
                                             <?php foreach($supplier as $splr){?>
                                             <option value="<?php echo $splr['clname'];?>-<?php echo $splr['cl_id'];?>"><?php echo $splr['clname'];?>-<?php echo $splr['cl_id'];?></option>
                                             <?php }?>
@@ -106,12 +106,12 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-1">
+                                    <div class="col-sm-2">
                                         <div class="md-input-wrapper">
-                                            <input type="text" class="md-form-control" placeholder="Total" name="item-total[]" onblur="funChange(this.value)"/>
+                                            <input type="text" class="md-form-control" placeholder="Total" name="item-total[]" />
                                         </div>
                                     </div>
-                                    <div class="col-sm-1" style="display:hide">
+                                    <div class="col-sm-1" style="display:none;">
                                         <div class="md-input-wrapper">
                                             <input type="hidden" class="md-form-control required" placeholder="S Price" id="item-sale"  name="item-sale[]"/>
                                         </div>
@@ -162,6 +162,20 @@
                             <div class="col-sm-4">
                                 <div class="md-input-wrapper">
                                     <input type="file" class="md-form-control required" placeholder="Net Total" name="invice-copy"/>
+                                </div>
+                            </div>
+                            <div class="col-sm-2 text-right p-t-15">
+                                Select Project
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="md-input-wrapper">
+                                    <!-- <input type="file" class="md-form-control required" placeholder="Net Total" name="invice-copy"/> -->
+                                    <select name="ddlProject" id="ddlProject" class="md-form-control required">
+                                     <option value="" selected hidden>---Select Project---</option>
+                                     <?php foreach($project_list as $project): ?>
+                                     <option value="<?php echo $project->project_id ?>"><?php echo $project->project_name ?></option>
+                                     <?php endforeach; ?>         
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -215,7 +229,8 @@
             gs = parseFloat($(this).parent().parent().parent().find('[name*=gst]').val());
 			sgs = parseFloat($(this).parent().parent().parent().find('[name*=ost]').val());
             if ((p || p == 0) && (q || q == 0)) {
-                $(this).parent().parent().parent().find('[name*=total]').val(p * q)
+                $(this).parent().parent().parent().find('[name*=total]').val(p * q);
+                $(this).parent().parent().parent().find('[name*=sale]').val(p * q);
             }
             if ((s || s == 0) && (gs || gs == 0) && (sgs || sgs == 0)) {
                 $(this).parent().parent().parent().find('[name*=totsal]').val(s + ((s * gs) / 100)+ ((s * sgs) / 100))
@@ -227,7 +242,8 @@
             gs = parseFloat($(this).parent().parent().parent().parent().parent().find('[name*=gst]').val());
 			sgs = parseFloat($(this).parent().parent().parent().parent().parent().find('[name*=ost]').val());
             if ((p || p == 0) && (q || q == 0)) {
-                $(this).parent().parent().parent().parent().parent().find('[name*=total]').val(p * q)
+                $(this).parent().parent().parent().parent().parent().find('[name*=total]').val(p * q);
+                $(this).parent().parent().parent().parent().parent().find('[name*=sale]').val(p * q);
             }
             if ((s || s == 0) && (gs || gs == 0) && (sgs || sgs == 0)) {
                 $(this).parent().parent().parent().parent().parent().find('[name*=totsal]').val(s + ((s * gs) / 100)+ ((s * sgs) / 100))
@@ -278,14 +294,14 @@
             + '</div>'
             + '</div>'
             + '</div>'
-            + '<div class="col-sm-1">'
+            + '<div class="col-sm-2">'
             + '<div class="md-input-wrapper">'
             + '<input type="text" class="md-form-control" placeholder="Total" name="item-total[]"/><span class="md-line"></span>'
             + '</div>'
             + '</div>'
-            + '<div class="col-sm-1">'
+            + '<div class="col-sm-1" style="display:none;">'
             + '<div class="md-input-wrapper">'
-            + '<input type="text" class="md-form-control required" placeholder="S Price" name="item-sale[]"/><span class="md-line"></span>'
+            + '<input type="hidden" class="md-form-control required" placeholder="S Price" name="item-sale[]"/><span class="md-line"></span>'
             + '</div>'
             + '</div>'
             + '<div class="col-sm-1">'
@@ -323,7 +339,8 @@
                 gs = parseFloat($(this).parent().parent().parent().find('[name*=gst]').val());
 				sgs = parseFloat($(this).parent().parent().parent().find('[name*=ost]').val());
                 if ((p || p == 0) && (q || q == 0)) {
-                    $(this).parent().parent().parent().find('[name*=total]').val(p * q)
+                    $(this).parent().parent().parent().find('[name*=total]').val(p * q);
+                    $(this).parent().parent().parent().find('[name*=sale]').val(p * q);
                 }
                 if ((s || s == 0) && (gs || gs == 0) && (sgs || sgs == 0)) {
                     $(this).parent().parent().parent().find('[name*=totsal]').val(s + ((s * gs) / 100)+ ((s * sgs) / 100))
@@ -335,7 +352,8 @@
                 gs = parseFloat($(this).parent().parent().parent().parent().parent().find('[name*=gst]').val());
 				sgs = parseFloat($(this).parent().parent().parent().parent().parent().find('[name*=ost]').val());
                 if ((p || p == 0) && (q || q == 0)) {
-                    $(this).parent().parent().parent().parent().parent().find('[name*=total]').val(p * q)
+                    $(this).parent().parent().parent().parent().parent().find('[name*=total]').val(p * q);
+                    $(this).parent().parent().parent().parent().parent().find('[name*=sale]').val(p * q);
                 }
                 if ((s || s == 0) && (gs || gs == 0)) {
                     $(this).parent().parent().parent().parent().parent().find('[name*=totsal]').val(s + ((s * gs) / 100)+ ((s * sgs) / 100))
@@ -398,8 +416,8 @@
         })
     }
 
-    function funChange(amt)
-    {
-        document.getElementById("item-sale").value=amt;
-    }
+    // function funChange(amt)
+    // {
+    //     document.getElementById("item-sale").value=amt;
+    // }
 </script>

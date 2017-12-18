@@ -15,7 +15,7 @@
                         </li>
                     </ol>
                     <center><ol class="breadcrumb breadcrumb-title breadcrumb-arrow">
-                    </li><button type="button" class="btn btn-inverse-primary waves-effect waves-light " data-toggle="tooltip" data-placement="top" title=""><a href="<?php echo base_url();?>View/Company" style="color:#FF0000;">View Saved Project Details</a></button></li>
+                    </li><button type="button" class="btn btn-inverse-primary waves-effect waves-light " data-toggle="tooltip" data-placement="top" title=""><a href="<?php echo base_url();?>View/Project" style="color:#FF0000;">View Saved Project Details</a></button></li>
                      </ol><br/><?php if($this->session->flashdata('success_log')) { ?>
               <h6 style="color:green;"><?php echo $this->session->flashdata('success_log'); ?></h6>
         <?php } ?></center>
@@ -66,7 +66,7 @@
                                 <div class="md-input-file">
                                     <input type="file" class="required" name="cimg" id="cimg"/>
                                     <input type="text" class="md-form-control md-form-file">
-                                    <label class="md-label-file">Upload Logo</label>
+                                    <label class="md-label-file">Upload Invoice</label>
                                 </div>
                             </div>
                             <!-- <div class="md-input-wrapper">

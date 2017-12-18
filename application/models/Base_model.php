@@ -316,6 +316,23 @@ public function get_project_amount()
    return $query->result();
 }
 
+
+// this function for insert data on tbl_deduction_history
+public function insert_deduction_history($object)
+{
+    $this->db->insert('tbl_deduction_history', $object);
+}
+
+// This Function For Get Project Name By Project Id
+public function get_porjectname_byid($id)
+{
+    $this->db->where('project_id', $id);
+    $this->db->select('project_name');
+    $query=$this->db->get('tbl_project');
+    return $query->result_array();
+    
+}
+
 }
 
 ?>

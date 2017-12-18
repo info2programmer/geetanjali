@@ -108,7 +108,10 @@ $this->load->model('base_model');
 		{
 			redirect(base_url());	
 		}else{
-		$data['rows'] = $this->base_model->show_data('td_supplier','*','')->result_array();
+			$condition=array(
+				'company_id' => $this->session->userdata('user_id')
+			);
+		$data['rows'] = $this->base_model->show_data('td_supplier','*',$condition)->result_array();
 		$data['head'] = $this->load->view('elements/head','',true);
 		$data['header'] = $this->load->view('elements/header','',true);
 		$data['left_sidebar'] = $this->load->view('elements/left-sidebar','',true);
@@ -215,7 +218,7 @@ $this->load->model('base_model');
 		{
 			redirect(base_url());	
 		}else{
-		$data['rows'] = $this->db->query('SELECT * FROM td_purchase_bill ORDER BY p_bill_date ASC')->result_array();
+		$data['rows'] = $this->db->query('SELECT * FROM td_purchase_bill WHERE company_id="'.$this->session->userdata('user_id').'" ORDER BY p_bill_date ASC')->result_array();
 		$data['head'] = $this->load->view('elements/head','',true);
 		$data['header'] = $this->load->view('elements/header','',true);
 		$data['left_sidebar'] = $this->load->view('elements/left-sidebar','',true);
@@ -231,6 +234,7 @@ $this->load->model('base_model');
 			redirect(base_url());	
 		}else{
 		$data['rows'] = $this->db->query('SELECT * FROM td_purchase_item WHERE pid='.$pid)->result_array();
+		$data['invoice']=$this->db->query('SELECT invoice_img FROM td_purchase_bill WHERE p_bill_id='.$pid)->result_array();
 		$data['head'] = $this->load->view('elements/head','',true);
 		$data['header'] = $this->load->view('elements/header','',true);
 		$data['left_sidebar'] = $this->load->view('elements/left-sidebar','',true);
@@ -474,5 +478,17 @@ $this->load->model('base_model');
 		$data['left_sidebar'] = $this->load->view('elements/left-sidebar','',true);
 		$data['maincontent']=$this->load->view('pages/project_details_view',$data,true);
 		$this->load->view('layout-after-login',$data);
-	} 
+	}
+	
+	// This Function For Item Management
+	// public function Item()
+	// {
+	// 	// Get All Item List Here 
+	// 	$data['item_list'] = $this->db->query('SELECT * FROM tbl_item WHERE company_id='.$this->session->userdata('user_id'))->result();
+	// 		$data['head'] = $this->load->view('elements/head','',true);
+	// 	$data['header'] = $this->load->view('elements/header','',true);
+	// 	$data['left_sidebar'] = $this->load->view('elements/left-sidebar','',true);
+	// 	$data['maincontent']=$this->load->view('pages/',$data,true);
+	// 	$this->load->view('layout-after-login',$data);
+	// }
 }

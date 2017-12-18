@@ -26,6 +26,7 @@
         <!-- <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>view/Client"><i class="icon-arrow-right"></i> Client Details</a></li> -->
         <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>view/Project"><i class="icon-arrow-right"></i> Project Management</a></li>
         <li class="<?php if($this->uri->segment(2)=='WeightUnit') { ?>active <?php } ?>"><a class="waves-effect waves-dark" href="<?php echo base_url();?>view/WeightUnit"><i class="icon-arrow-right"></i> Unit Management</a></li>
+        <!-- <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>view/Item"><i class="icon-arrow-right"></i> Item Management</a></li> -->
       </ul>
     </li>
 

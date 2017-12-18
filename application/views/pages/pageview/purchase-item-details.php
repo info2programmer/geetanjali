@@ -30,6 +30,7 @@
                 <th>Item CGST (%)</th>
                 <th>Item SGST (%)</th>
                 <th>Sale Details</th>
+                <th>Invoice</th>
               </tr>
               </thead>
               
@@ -48,7 +49,7 @@
                 <td>Sale Price : <?php //echo $row['item_s_price']; ?> Without GST <?php echo $row['item_single_sale_wogst']; ?>/<?php echo $unit[0]['stname']; ?><br/>
                 Sale Price : <?php //echo $row['item_s_total']; ?> With GST <?php echo $row['item_single_sale_wgst']; ?>/<?php echo $unit[0]['stname']; ?>
                 </td>               
-                
+                <td><a href="<?php echo base_url() ?>news/<?php echo $invoice[0]['invoice_img'] ?>" target="_blank"><i class="zmdi zmdi-file"></i></a></td>
               </tr>
             <?php } } else { ?>
             	<tr>

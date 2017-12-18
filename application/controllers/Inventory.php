@@ -31,7 +31,8 @@ class Inventory extends CI_Controller {
 		}
 		$data['supplier'] = $this->db->query('SELECT * FROM td_supplier ORDER BY clname ASC')->result_array();
 		$data['unit'] = $this->db->query('SELECT * FROM td_unit ORDER BY stname ASC')->result_array();
-		$data['items'] = $this->db->query('SELECT * FROM td_purchase_item ORDER BY item_name ASC')->result_array();
+		$data['items'] = $this->db->query('SELECT * FROM td_purchase_item WHERE company_id="'.$this->session->userdata('user_id').'" ORDER BY item_name ASC')->result_array();
+		$data['project_list']=$this->db->query('SELECT * FROM tbl_project WHERE company_id='.$this->session->userdata('user_id'))->result();
 		$data['head'] = $this->load->view('elements/head','',true);
 		$data['header'] = $this->load->view('elements/header','',true);
 		$data['left_sidebar'] = $this->load->view('elements/left-sidebar','',true);
