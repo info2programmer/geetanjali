@@ -292,7 +292,8 @@ public function Employee()
 			'emp_sal' => $salary,
 			'pic' => $imges,
 			'addate' => date('Y-m-d'),
-			'adby' => $this->session->userdata('username')
+			'adby' => $this->session->userdata('username'),
+			'company_id' => $this->session->userdata('user_id')
 		);
 		$service = $this->base_model->form_post('td_employee',$fields);
 		if($service)
