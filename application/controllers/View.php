@@ -463,7 +463,7 @@ $this->load->model('base_model');
 		}
 
 		// $data['rows'] = $this->base_model->show_data('td_employee','*','')->result_array();
-		$data['employee_list'] = $this->db->query("SELECT * FROM td_employee")->result();
+		$data['employee_list'] = $this->db->query("SELECT * FROM td_employee WHERE company_id=".$this->session->userdata('user_id'))->result();
 		$data['head'] = $this->load->view('elements/head','',true);
 		$data['header'] = $this->load->view('elements/header','',true);
 		$data['left_sidebar'] = $this->load->view('elements/left-sidebar','',true);

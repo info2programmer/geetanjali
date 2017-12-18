@@ -277,7 +277,7 @@ public function Bank()
 	}
 
 	// This Function To Update Deu Amount
-	public function PayDeuAmount($id,$amount)
+	public function PayDeuAmount($id,$amount,$project_id,$emp_id,$due_amount)
 	{
 		$object=array(
 			'paid_amount' => $amount,
@@ -285,11 +285,40 @@ public function Bank()
 		);
 		$this->db->where('id', $id);
 		$this->db->update('tbl_payment_data', $object);
+
+		$particulars="Pay Employee With Id- ".$emp_id." and deduct amount ".$due_amount;
+			$decuttion=array(
+				'project_id' => $project_id,
+				'company_id' => $this->session->userdata('user_id'),
+				'amount' => $due_amount,
+				'particulars' => $particulars,
+				'date' => date('Y-m-d'),
+				'time' => date('h:i:sa')
+			);
+		$this->base_model->insert_deduction_history($decuttion);
+
+		// Update Amount To Project Table
+		$this->update_project_amount($project_id,$due_amount);
 		
 		$this->session->set_flashdata('success_log', 'Pay Update Successfully');
 		
 		redirect('view/WageReport');
 		
+	}
+
+		// this function for update project_current amount
+	private function update_project_amount($project_id,$amount){
+		$project_current_amount=$this->db->query('SELECT * FROM tbl_project WHERE project_id='.$project_id)->result_array();
+		// echo $project_current_amount ;
+		// die;
+		$amt=(float)$project_current_amount[0]['current_amount']-(float)$amount;
+
+		$object=array(
+			'current_amount' =>$amt
+		);
+		$this->db->where('project_id', $project_id);
+		$this->db->update('tbl_project', $object);
+
 	}
 
 	

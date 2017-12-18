@@ -130,7 +130,7 @@
                                 <td><?php echo $list->wage ?></td>
                                 <td><?php echo $list->paid_amount ?></td>
                                 <td><?php echo $list->due_amount ?>
-                             <br><?php if($list->due_amount!=0): ?><a href="<?php echo base_url() ?>update/PayDeuAmount/<?php echo $list->id ?>/<?php echo $list->wage ?>" class="btn btn-default btn-xs">Pay Now</a><?php endif; ?></td> 
+                             <br><?php if($list->due_amount!=0): ?><a href="<?php echo base_url() ?>update/PayDeuAmount/<?php echo $list->id ?>/<?php echo $list->wage ?>/<?php echo $list->project_id ?>/<?php echo $list->emp_id ?>/<?php echo $list->due_amount ?>" class="btn btn-default btn-xs">Pay Now</a><?php endif; ?></td> 
                                 <td><?php echo $list->type ?>
                             <span id="pay<?php echo $i; ?>" style="display:none;"><form><input type="text" name="txt_pay" class="form-control"><button type="submit" class="btn btn-success btn-xs">Submit<button></form></span>
                             </td>
