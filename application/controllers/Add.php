@@ -790,7 +790,8 @@ $fields_inc = array(
 				'work' => $this->input->post('txtWork'),
 				'type' => $this->input->post('ddlPaymentMode'),
 				'date' => date('Y-m-d'),
-				'project_id' => $project_id
+				'project_id' => $project_id,
+				'company_id' => $this->session->userdata('user_id')
 			);
 			$this->base_model->form_post('tbl_daily_wage',$object);
 			$wage_id=$this->db->insert_id();
