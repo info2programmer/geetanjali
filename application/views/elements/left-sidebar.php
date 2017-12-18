@@ -58,14 +58,15 @@
         <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>view/WageReport"><i class="icon-arrow-right"></i> Daily Wages Report</a></li>
       </ul>
     </li>
-    <!-- <li class="treeview"><a class="waves-effect waves-dark" href="#!"><i class="icon-film"></i> <span> Manage Expense & ROI</span><i class="icon-arrow-down"></i></a>
-      <ul class="treeview-menu">
+    <li class="nav-level">Deduction</li>
+    <li class="treeview"><a class="waves-effect waves-dark" href="<?php echo base_url() ?>view/Deduction"><i class="icon-film"></i> <span> Deduction History</span></a>
+      <!-- <ul class="treeview-menu">
       <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>view/Expenses"><i class="icon-arrow-right"></i> Manage Expenses</a></li>
         <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>expense/ExpenseReport"><i class="icon-arrow-right"></i>Expense Report</a></li>
         
         <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>Reports/RoiDetails"><i class="icon-arrow-right"></i> ROI Report</a></li>
-      </ul>
-    </li> -->
+      </ul> -->
+    </li>
   
         
     <!-- <li class="nav-level">Accounting</li>
