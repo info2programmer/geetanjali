@@ -340,6 +340,25 @@ public function get_porjectname_byid($id)
     
 }
 
+// This Function For Deduction History
+public function get_deduction_history($txtFromDate,$txtToDate,$ddlProject)
+{
+    if($ddlProject!="")
+    {
+        $this->db->order_by('id', 'desc');        
+        $this->db->where('project_id', $ddlProject);
+    }
+    if($txtFromDate!="" && $txtToDate!="")
+    {
+        $this->db->where('date >=', $txtFromDate);
+        $this->db->where('date <=', $txtToDate);
+    }
+    $this->db->where('company_id', $this->session->userdata('user_id'));
+    $query=$this->db->get('tbl_deduction_history');
+    return $query->result();  
+
+}
+
 }
 
 ?>

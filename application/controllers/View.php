@@ -494,4 +494,28 @@ $this->load->model('base_model');
 	// 	$data['maincontent']=$this->load->view('pages/',$data,true);
 	// 	$this->load->view('layout-after-login',$data);
 	// }
+
+	// This Function For Show Deduction History
+	public function Deduction()
+	{
+		if($this->input->post('btnSubmit')=="Submit"){
+			// if post data here then this blog will execute
+			
+			// Get All Data Here
+			$ddlProject=$this->input->post('ddlProject');
+			$txtFromDate=$this->input->post('txtFromDate');
+			$txtToDate=$this->input->post('txtToDate');
+
+			$data['listing_date'] = $this->base_model->get_deduction_history($txtFromDate,$txtToDate,$ddlProject);
+			// echo $this->db->last_query();
+			// die;
+		}
+
+		$data['project_list'] = $this->db->query("SELECT * FROM tbl_project WHERE company_id=".$this->session->userdata('user_id'))->result();
+		$data['head'] = $this->load->view('elements/head','',true);
+		$data['header'] = $this->load->view('elements/header','',true);
+		$data['left_sidebar'] = $this->load->view('elements/left-sidebar','',true);
+		$data['maincontent']=$this->load->view('pages/pageview/deduction_listing_view',$data,true);
+		$this->load->view('layout-after-login',$data);
+	}
 }
