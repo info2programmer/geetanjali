@@ -145,6 +145,12 @@
 		if(move_uploaded_file($tmp,$image_path.$img))
 		return true;
     }
+     function file_upload3($img,$tmp)
+    {
+        $image_path = 'uploads/company/';
+		if(move_uploaded_file($tmp,$image_path.$img))
+		return true;
+    }
     function file_upload1($img,$tmp)
     {
         $image_path = 'guest/';
@@ -296,6 +302,7 @@ public function get_payment_history($txtFromDate,$txtToDate,$ddlEmployee)
         $this->db->where('date >=', $txtFromDate);
         $this->db->where('date <=', $txtToDate);
     }
+    $this->db->where('tbl_daily_wage.company_id', $this->session->userdata('user_id'));
     $this->db->select('tbl_daily_wage.*, tbl_payment_data.*,td_employee.name as name');
     $this->db->from('tbl_daily_wage');
     $this->db->join('tbl_payment_data', 'tbl_payment_data.foregin_wage_id = tbl_daily_wage.wage_id', 'INNER');

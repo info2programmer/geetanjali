@@ -308,7 +308,7 @@ public function Employee()
 			// $table['name'] = 'employee_salary';
 			// $data = $this->Common_model->save_data($table,$fields1,'','emp_sal_id');
 						
-		$this->base_model->file_upload2($imges,$temp);
+		$this->base_model->file_upload3($imges,$temp);
 		$this->session->set_flashdata('success_message', 'Details Saved Successfully');
 		redirect(base_url().'Settings/EmployeeDetails');
 		}
@@ -781,13 +781,16 @@ $fields_inc = array(
 	{
 		if($this->input->post('btnSubmit')=="Submit")
 		{
+			$project_id=$this->input->post('ddlProject');
+			// $amount=$this->input->post('txtPay');
 			// If Post Request Then This Block Will Be Execute
 			$object=array(
 				'emp_id' => $this->input->post('ddlEmployee'),
 				'wage' => $this->input->post('txtTotal'),
 				'work' => $this->input->post('txtWork'),
 				'type' => $this->input->post('ddlPaymentMode'),
-				'date' => date('Y-m-d')
+				'date' => date('Y-m-d'),
+				'project_id' => $project_id
 			);
 			$this->base_model->form_post('tbl_daily_wage',$object);
 			$wage_id=$this->db->insert_id();
@@ -800,11 +803,28 @@ $fields_inc = array(
 			);
 			$this->base_model->form_post('tbl_payment_data',$fields);
 
+			// Update Amount To Project Table
+			$this->update_project_amount($project_id,$this->input->post('txtPay'));
+
+			// Insert Into Deduct Table
+			$particulars="Pay Employee With Id- ".$this->input->post('ddlEmployee')." and deduct amount ".$this->input->post('txtPay');
+			$decuttion=array(
+				'project_id' => $project_id,
+				'company_id' => $this->session->userdata('user_id'),
+				'amount' => $this->input->post('txtPay'),
+				'particulars' => $particulars,
+				'date' => date('Y-m-d'),
+				'time' => date('h:i:sa')
+			);
+
+			$this->base_model->insert_deduction_history($decuttion);
+
 			$this->session->set_flashdata('success_log', 'Wage Submit Successfully');
 			redirect('add/EmployeeWage','refresh');
 		}
 		
 		$data['employee_list'] = $this->db->query("SELECT * FROM td_employee")->result();
+		$data['project_list']=$this->db->query('SELECT * FROM tbl_project WHERE company_id='.$this->session->userdata('user_id'))->result();
 		$data['head'] = $this->load->view('elements/head','',true);
 		$data['header'] = $this->load->view('elements/header','',true);
 		$data['left_sidebar'] = $this->load->view('elements/left-sidebar','',true);

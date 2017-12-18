@@ -35,13 +35,13 @@
                         </div>
                         
                         <!-- end of modal -->
-						<form name="companyform" id="signupform" method="post" action="<?php echo base_url();?>index.php/view/EmployeeWage" enctype="multipart/form-data">
+						<form name="companyform" id="signupform" method="post" action="<?php echo base_url();?>index.php/add/EmployeeWage" enctype="multipart/form-data">
                         <div class="card-block">
                             <div class="row">
                             <div class="col-sm-12">
                             <div class="md-input-wrapper">
                                       <select class="md-form-control required" name="ddlEmployee">
-                                          <option value="">Select Labour</option>
+                                          <option value="" selected hidden>Select Labour</option>
                                           <?php foreach($employee_list as $list): ?>
                                           <option value="<?php echo $list->emp_id ?>"><?php echo $list->name ?></option>
                                           <?php endforeach; ?>
@@ -78,6 +78,15 @@
                                         <option value="Advance">Advance</option>
                                         <option value="Full">Full</option>
                                  </select>
+                            </div>
+
+                            <div class="md-input-wrapper">
+                                  <select name="ddlProject" id="ddlProject" class="md-form-control required">
+                                     <option value="" selected hidden>---Select Project---</option>
+                                     <?php foreach($project_list as $project): ?>
+                                     <option value="<?php echo $project->project_id ?>"><?php echo $project->project_name ?></option>
+                                     <?php endforeach; ?>         
+                                    </select>
                             </div>
                              
                             <!-- <div class="md-input-wrapper">
