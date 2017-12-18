@@ -141,12 +141,7 @@
                     </div>
                 <?php endif; ?>              
                 </div>
-
-
             </div>
-
-            
-            
         </div>
         <!-- Container-fluid ends -->
  <script>

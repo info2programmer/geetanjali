@@ -316,6 +316,8 @@ public function get_payment_history($txtFromDate,$txtToDate,$ddlEmployee)
 // this function to get project amount
 public function get_project_amount()
 {
+   
+   $this->db->where('tbl_project.company_id', $this->session->userdata('user_id'));
    $this->db->select('company_name, tbl_project.*');   
    $this->db->from('tbl_project');
    $this->db->join('td_users', 'td_users.id = tbl_project.company_id', 'inner');
