@@ -42,7 +42,7 @@
       <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>view/Supplier"><i class="icon-arrow-right"></i> Supplier Details</a></li>
       <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>view/Purchase"><i class="icon-arrow-right"></i>Purchase Records</a></li>
       <!-- <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>view/StoreAllocation"><i class="icon-arrow-right"></i> Store Allocation</a></li> -->
-      <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>inventory/PurchaseReturn"><i class="icon-arrow-right"></i> Purchase Return</a></li>
+      <!-- <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>inventory/PurchaseReturn"><i class="icon-arrow-right"></i> Purchase Return</a></li> -->
       
       <!-- <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>view/Sales"><i class="icon-arrow-right"></i> Sale Managemt</a></li>
       <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>inventory/SaleReturn"><i class="icon-arrow-right"></i> Sale Return</a></li>
