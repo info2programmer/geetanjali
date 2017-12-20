@@ -14,12 +14,12 @@ class User extends CI_Controller {
 		{
 			redirect(base_url());	
 		}
-		$data['purchase']=$this->db->query('SELECT SUM(purchase_total) as totalPurchase FROM td_purchase_bill')->result_array();
+		$data['projects']=$this->db->query('SELECT COUNT(project_id) as totalprojects FROM tbl_project')->result_array();
 		$data['sales']=$this->db->query('SELECT SUM(p_bill_total) as totalSales FROM td_sales_bill')->result_array();
 		$data['customer']=$this->db->query('SELECT * FROM td_client')->num_rows();
 		$data['supplier']=$this->db->query('SELECT * FROM td_supplier')->num_rows();
 		$data['product']=$this->db->query('SELECT DISTINCT(stock_item) AS stkCount FROM td_stock')->num_rows();
-		$data['emplye']=$this->db->query('SELECT * FROM td_employee')->result_array();
+		$data['emplye']=$this->db->query('SELECT * FROM td_employee WHERE company_id='.$this->session->userdata('user_id'))->result_array();
 		$data['head'] = $this->load->view('elements/head','',true);
 		$data['header'] = $this->load->view('elements/header','',true);
 		$data['left_sidebar'] = $this->load->view('elements/left-sidebar','',true);
