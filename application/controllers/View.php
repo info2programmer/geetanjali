@@ -239,6 +239,8 @@ $this->load->model('base_model');
 		$data['pid']=$pid;
 		$data['rows'] = $this->db->query('SELECT * FROM td_purchase_item WHERE pid='.$pid)->result_array();
 		$data['invoice']=$this->db->query('SELECT invoice_img FROM td_purchase_bill WHERE p_bill_id='.$pid)->result_array();
+		$data['status'] =$this->db->query('SELECT * FROM td_purchase_bill WHERE p_bill_id='.$pid)->result_array();
+		
 		$data['head'] = $this->load->view('elements/head','',true);
 		$data['header'] = $this->load->view('elements/header','',true);
 		$data['left_sidebar'] = $this->load->view('elements/left-sidebar','',true);

@@ -331,6 +331,67 @@ public function Bank()
 		
 	}
 
+	// This Function For Confirm Order Request
+	public function UpdatePurchaseRequest()
+	{
+		$txtTotalOrderAmount=$this->input->post('txtTotalOrderAmount');
+		$txtPurchaseId=$this->input->post('txtPurchaseId');
+		$txtAmount=$this->input->post('txtAmount');
+		$txtProjectID=$this->input->post('txtProjectID');
+		$txtInvoiceNumber=$this->input->post('txtInvoiceNumber');
+		$txtDueAmount=$this->input->post('txtDueAmount');
+
+		// this function for update project current amount
+		$project_current_amount=$this->db->query('SELECT * FROM tbl_project WHERE project_id='.$txtProjectID)->result_array();
+		// echo $project_current_amount ;
+		// die;
+		$amt=(float)$project_current_amount[0]['current_amount']-(float)$txtAmount;
+
+		$object=array(
+			'current_amount' =>$amt
+		);
+		$this->db->where('project_id', $txtProjectID);
+		$this->db->update('tbl_project', $object);
+
+		// This Function For Indser Deduct Amount History
+		$particulars="Purchase Invoice- ".$txtInvoiceNumber." and deduct amount ".$txtAmount;
+		$decuttion=array(
+			'project_id' => $txtProjectID,
+			'company_id' => $this->session->userdata('user_id'),
+			'amount' => $txtAmount,
+			'particulars' => $particulars,
+			'date' => date('Y-m-d'),
+			'time' => date('h:i:sa')
+		);
+
+		$this->base_model->insert_deduction_history($decuttion);
+
+
+		// This For Update In Parchase Table
+		if($txtDueAmount!="")
+		{
+			$txtTotalOrderAmount=$txtDueAmount;
+		}
+		$updatePbillData=array(
+			'due_amt' => (float)$txtTotalOrderAmount-(float)$txtAmount,
+			'request_status' => 1
+		);
+		
+		$this->db->where('p_bill_id', $txtPurchaseId);
+		$this->db->update('td_purchase_bill',$updatePbillData);
+
+		
+		redirect('View/PurchaseItems/'.$txtPurchaseId,'refresh');
+		
+		
+	}
+
+		// this function for update project_current amount
+	//  function update_project_amount($project_id,$amount){
+		
+
+	// }
+
 	
 	
 }

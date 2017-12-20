@@ -35,15 +35,19 @@
               </thead>
               
              <tbody>
-             <?php $max=0; ?>
+             <?php $max=0; 
+            //  $status=0;
+             ?>
             <?php if($rows) { $i=1; foreach($rows as $row) {
       $unit = $this->db->query('SELECT * FROM td_unit WHERE uid='.$row['item_p_unit'])->result_array();
        $max=(int)$row['item_p_total_amt']; 
+      //  $status=$invoice[0]['request_status'];
 			?>
               <tr>
               	<td><?php echo $i++; ?></td>
                 <td><?php echo $row['item_name']; ?></td>
-                <td>Oredr Price : <?php echo $row['item_p_total_amt']; ?><br/>
+                <td>Order Price : <?php echo $row['item_p_total_amt']; ?><br/>
+                Due Amount : <?php echo $status[0]['due_amt'] ?><br/>
                 Quantity : <?php echo $row['item_p_qty']; ?> <?php echo $unit[0]['stname']; ?> (<?php echo $row['item_unit_p_price']; ?>/<?php echo $unit[0]['stname']; ?>)
                 </td>
                 <td><?php echo $row['item_s_gst']; ?></td>
@@ -61,18 +65,24 @@
             </tbody>
             </table>
           </div>
+        
            <div class="card-block">
-              <form action="<?php echo current_url() ?>" method="post">
+              <form action="<?php echo base_url() ?>Update/UpdatePurchaseRequest" method="post">
                 <div class="form-control">
                   <label for="txtAmount">Enter Amout</label>
                   <input type="number" class="form-control" placeholder="Enter Price" max="<?php echo $max; ?>"  name="txtAmount" required>
+                  <input type="hidden" name="txtTotalOrderAmount" value="<?php echo $max ?>">
+                  <input type="hidden" name="txtProjectID" value="<?php echo $status[0]['project_id'] ?>">
                   <input type="hidden" name="txtPurchaseId" value="<?php echo $pid; ?>" >
+                  <input type="hidden" name="txtInvoiceNumber" value="<?php echo $status[0]['p_bill_no'] ?>" >
+                  <input type="hidden" name="txtDueAmount" value="<?php echo $status[0]['due_amt'] ?>" >
                   <br>
-                  <button class="btn btn-success"><i class="icofont icofont-ui-check"></i> Accept</button>&nbsp;<a onclick="return confirm('Note: Choosing Deny Will Delete The Selected Purchase Order')" href="<?php echo base_url() ?>Update/Denyrequest/<?php echo $pid; ?>" class="btn btn-danger"><i class="icofont icofont-ui-close"></i> Deny</a>
+            <button class="btn btn-success" name="btnSubmit" value="submit"><i class="icofont icofont-ui-check"></i> Accept</button>&nbsp;<?php if($status[0]['request_status']!=1): ?><a onclick="return confirm('Note: Choosing Deny Will Delete The Selected Purchase Order')" href="<?php echo base_url() ?>Update/Denyrequest/<?php echo $pid; ?>" class="btn btn-danger"><i class="icofont icofont-ui-close"></i> Deny</a><?php endif; ?>
                 </div>
                 
               </form>
            </div>
+            
         </div>
       </div>
     </div>

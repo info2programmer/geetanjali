@@ -860,4 +860,7 @@ $fields_inc = array(
 		$data['maincontent']=$this->load->view('pages/create_project_view',$data,true);
 		$this->load->view('layout-after-login',$data);   
 	}
+
+
+	
 }
