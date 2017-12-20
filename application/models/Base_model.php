@@ -361,6 +361,14 @@ public function get_deduction_history($txtFromDate,$txtToDate,$ddlProject)
 
 }
 
+// This Function to Get Project Data By Project Id
+public function project_by_id($id)
+{
+    $this->db->where('project_id', $id);
+    $query=$this->db->get('tbl_project');
+    return $query->result_array();
+}
+
 }
 
 ?>

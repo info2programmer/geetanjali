@@ -133,7 +133,7 @@
                             <?php } ?>  
                             </tbody>
                             </table>
-                            <Span>Total Deduction : <span style="color:red"><?php echo array_sum($array_item); ?>/-</span></Span>
+                            <Span>Total Project Value : <span class="badge label label-success"><?php echo $project_details[0]['Project_value']; ?>/- &nbsp;</span>Total Deduction : <span class="badge label label-danger"><?php echo array_sum($array_item); ?>/-</span></Span>
                         </div>
                         
                         </div>

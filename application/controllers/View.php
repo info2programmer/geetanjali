@@ -507,6 +507,7 @@ $this->load->model('base_model');
 			$txtToDate=$this->input->post('txtToDate');
 
 			$data['listing_date'] = $this->base_model->get_deduction_history($txtFromDate,$txtToDate,$ddlProject);
+			$data['project_details'] = $this->base_model->project_by_id($ddlProject);
 			// echo $this->db->last_query();
 			// die;
 		}
