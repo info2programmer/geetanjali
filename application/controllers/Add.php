@@ -516,20 +516,20 @@ $bill_numb = $this->input->post('purchase-bno');
 		//$cid = $this->db->insert_id();
 
 		// this function for update project current amount
-		$this->update_project_amount($project_id,$total);
+		// $this->update_project_amount($project_id,$total);
 
 		// This Function For Indser Deduct Amount History
-		$particulars="Purchase Invoice- ".$bill_numb." and deduct amount ".$total;
-		$decuttion=array(
-			'project_id' => $project_id,
-			'company_id' => $this->session->userdata('user_id'),
-			'amount' => $total,
-			'particulars' => $particulars,
-			'date' => date('Y-m-d'),
-			'time' => date('h:i:sa')
-		);
+		// $particulars="Purchase Invoice- ".$bill_numb." and deduct amount ".$total;
+		// $decuttion=array(
+		// 	'project_id' => $project_id,
+		// 	'company_id' => $this->session->userdata('user_id'),
+		// 	'amount' => $total,
+		// 	'particulars' => $particulars,
+		// 	'date' => date('Y-m-d'),
+		// 	'time' => date('h:i:sa')
+		// );
 
-		$this->base_model->insert_deduction_history($decuttion);
+		// $this->base_model->insert_deduction_history($decuttion);
 		
 		if($service1)
 		{

@@ -321,6 +321,16 @@ public function Bank()
 
 	}
 
+
+
+	// This function for deny request
+	public function Denyrequest($pid)
+	{
+		$this->base_model->DeletePurchase($pid);
+		redirect('view/Purchase','refresh');
+		
+	}
+
 	
 	
 }

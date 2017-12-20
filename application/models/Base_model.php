@@ -369,6 +369,21 @@ public function project_by_id($id)
     return $query->result_array();
 }
 
+
+// This Function For Delete Purchase Order
+public function DeletePurchase($id)
+{
+    // Delete Purchase Item
+    $this->db->where('p_bill_id', $id);
+    $this->db->delete('td_purchase_bill');
+
+    // Delete Invoice
+    $this->db->where('pid', $id);
+    $this->db->delete('td_purchase_item');
+    
+    
+}
+
 }
 
 ?>
