@@ -530,7 +530,10 @@ $this->load->model('base_model');
 		{
 			redirect(base_url());	
 		}else{
-		$data['rows'] = $this->base_model->show_data('tbl_labour_contractor','*','')->result_array();
+			$condition=array(
+				'company_id' => $this->session->userdata('user_id')
+			);
+		$data['rows'] = $this->base_model->show_data('tbl_labour_contractor','*',$condition)->result_array();
 		$data['head'] = $this->load->view('elements/head','',true);
 		$data['header'] = $this->load->view('elements/header','',true);
 		$data['left_sidebar'] = $this->load->view('elements/left-sidebar','',true);

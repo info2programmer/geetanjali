@@ -25,9 +25,9 @@
               <thead>
               <tr>
               	<th>Sl No.</th>
-                <th>Contractor Name</th>
-                <th>Contractor Email</th>
-                <th>Contractor Phone</th>
+                <th>Supplier Name</th>
+                <th>Supplier Email</th>
+                <th>Supplier Phone</th>
                 <th>PAN No</th>
                 <th>Address</th>
                 <th>Action</th>
@@ -40,9 +40,9 @@
             <?php if($rows) { $i=1; foreach($rows as $row) {?>
               <tr>
               	<td><?php echo $i++; ?></td>
-                <td><?php echo $row['contractor_name']; ?></td>
-                <td><?php echo $row['contractor_email']; ?></td>
-                <td><?php echo $row['contractor_phone']; ?></td>
+                <td><?php echo $row['clname']; ?></td>
+                <td><?php echo $row['clemail']; ?></td>
+                <td><?php echo $row['clphn']; ?></td>
                 <td><?php echo $row['clpan']; ?></td>
                 <td><?php echo $row['cladd']; ?></td>               
                 <td>

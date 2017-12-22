@@ -862,5 +862,39 @@ $fields_inc = array(
 	}
 
 
+	// This Function For Add Labour Contractor
+	public function LabourContractor()
+	{
+		if($this->input->post('btnSubmit')=='submit'){
+			// This Section For Post Values
+			$sname=$this->input->post('sname');
+			$semail=$this->input->post('semail');
+			$sphn=$this->input->post('sphn');
+			$span=$this->input->post('span');
+			$sadd=$this->input->post('sadd');
+
+			$object=array(
+				'contractor_name' => $sname,
+				'contractor_email' => $semail,
+				'contractor_phone' => $sphn,
+				'contractor_pan' => $span,
+				'contractor_address' => $sadd,
+				'company_id' => $this->session->userdata('user_id')
+			);
+			
+			$this->base_model->form_post('tbl_labour_contractor',$object);
+			$this->session->set_flashdata('success_log', 'Contractor Create Successfully');
+			redirect('View/LabourContractor');
+		}
+		else{
+			$data['head'] = $this->load->view('elements/head','',true);
+			$data['header'] = $this->load->view('elements/header','',true);
+			$data['left_sidebar'] = $this->load->view('elements/left-sidebar','',true);
+			$data['maincontent']=$this->load->view('pages/create_labour_contractor',$data,true);
+			$this->load->view('layout-after-login',$data);   
+		}
+	}
+
+
 	
 }
