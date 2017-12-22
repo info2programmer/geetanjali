@@ -53,6 +53,7 @@
     <li class="nav-level">Labour Management</li>
     <li class="treeview"><a class="waves-effect waves-dark" href="<?php echo base_url();?>view/Employee"> <i class="icon-film"></i><span>Labour </span> <i class="icon-arrow-down"></i></a>
       <ul class="treeview-menu">
+      <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>view/LabourContractor"><i class="icon-arrow-right"></i> Labour Contractor</a></li>
       <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>view/Employee"><i class="icon-arrow-right"></i> Labour Details</a></li>
         <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>add/EmployeeWage"><i class="icon-arrow-right"></i> Daily Wages Bill</a></li>
         <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>view/WageReport"><i class="icon-arrow-right"></i> Daily Wages Report</a></li>

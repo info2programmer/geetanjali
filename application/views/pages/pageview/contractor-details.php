@@ -25,9 +25,9 @@
               <thead>
               <tr>
               	<th>Sl No.</th>
-                <th>Contractor Name</th>
-                <th>Contractor Email</th>
-                <th>Contractor Phone</th>
+                <th>Supplier Name</th>
+                <th>Supplier Email</th>
+                <th>Supplier Phone</th>
                 <th>PAN No</th>
                 <th>Address</th>
                 <th>Action</th>
@@ -43,8 +43,8 @@
                 <td><?php echo $row['contractor_name']; ?></td>
                 <td><?php echo $row['contractor_email']; ?></td>
                 <td><?php echo $row['contractor_phone']; ?></td>
-                <td><?php echo $row['clpan']; ?></td>
-                <td><?php echo $row['cladd']; ?></td>               
+                <td><?php echo $row['contractor_pan']; ?></td>
+                <td><?php echo $row['contractor_address']; ?></td>               
                 <td>
                 	<a href="<?php echo base_url();?>edit/Supplier/<?php echo $row['cl_id']; ?>" onclick="return confirm('Are you sure ?');"><i class="fa fa-pencil" aria-hbrand_idden="true"></i></a>
                 	<!--<a href="<?php echo base_url();?>index.php/delete/Supplier/<?php echo $row['cl_id']; ?>" onclick="return confirm('Are you sure ?');"><i class="zmdi zmdi-delete"></i></a>-->

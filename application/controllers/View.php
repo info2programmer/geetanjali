@@ -522,4 +522,20 @@ $this->load->model('base_model');
 		$data['maincontent']=$this->load->view('pages/pageview/deduction_listing_view',$data,true);
 		$this->load->view('layout-after-login',$data);
 	}
+
+	// This Function For Labour Contractor
+	public function LabourContractor()
+	{
+		if($this->session->userdata('is_admin_logged_in')!=1)
+		{
+			redirect(base_url());	
+		}else{
+		$data['rows'] = $this->base_model->show_data('tbl_labour_contractor','*','')->result_array();
+		$data['head'] = $this->load->view('elements/head','',true);
+		$data['header'] = $this->load->view('elements/header','',true);
+		$data['left_sidebar'] = $this->load->view('elements/left-sidebar','',true);
+		$data['maincontent']=$this->load->view('pages/pageview/contractor-details',$data,true);
+		$this->load->view('layout-after-login',$data);
+		}
+	}
 }
