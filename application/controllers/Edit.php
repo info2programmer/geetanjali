@@ -469,4 +469,42 @@ $this->load->model('base_model','Common_model');
 		$data['maincontent']=$this->load->view('pages/inc-settings-edit',$data,true);
 		$this->load->view('layout-after-login',$data);
 	}
+
+
+	// this function for edit Labour Contractor
+	public function LabourContractor($edit_id)
+	{
+		if($this->input->post('btnSubmit')=="submit"){
+			$sname=$this->input->post('sname');
+			$semail=$this->input->post('semail');
+			$sphn=$this->input->post('sphn');
+			$span=$this->input->post('span');
+			$sadd=$this->input->post('sadd');
+
+			$object=array(
+				'contractor_name' => $sname,
+				'contractor_email' => $semail,
+				'contractor_phone' => $sphn,
+				'contractor_pan' => $span,
+				'contractor_address' => $sadd,
+				'company_id' => $this->session->userdata('user_id')
+			);
+
+			$table['name'] = 'tbl_labour_contractor';
+			$data = $this->Common_model->save_data($table,$object,$edit_id,'id');
+			$this->session->set_flashdata('success_log','Data Updated');	
+			redirect('view/LabourContractor');
+		}
+		else{
+			$conditions=array('id'=>$edit_id);
+			$table['name'] = 'tbl_labour_contractor';
+			$data['row'] = $this->Common_model->find_data($table,'row','',$conditions);
+			$data['edit_id'] =$edit_id;
+			$data['head'] = $this->load->view('elements/head','',true);
+			$data['header'] = $this->load->view('elements/header','',true);
+			$data['left_sidebar'] = $this->load->view('elements/left-sidebar','',true);
+			$data['maincontent']=$this->load->view('pages/labour-contractor-edit',$data,true);
+			$this->load->view('layout-after-login',$data);
+		}
+	}
 }

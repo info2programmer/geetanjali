@@ -46,7 +46,7 @@
                 <td><?php echo $row['contractor_pan']; ?></td>
                 <td><?php echo $row['contractor_address']; ?></td>               
                 <td>
-                	<a href="<?php echo base_url();?>edit/Supplier/<?php echo $row['id']; ?>" onclick="return confirm('Are you sure ?');"><i class="fa fa-pencil" aria-hbrand_idden="true"></i></a>
+                	<a href="<?php echo base_url();?>edit/LabourContractor/<?php echo $row['id']; ?>" onclick="return confirm('Are you sure ?');"><i class="fa fa-pencil" aria-hbrand_idden="true"></i></a>
                 	<!--<a href="<?php echo base_url();?>index.php/delete/Supplier/<?php echo $row['cl_id']; ?>" onclick="return confirm('Are you sure ?');"><i class="zmdi zmdi-delete"></i></a>-->
 					
                 </td>
