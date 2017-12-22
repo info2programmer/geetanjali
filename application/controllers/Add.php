@@ -895,6 +895,60 @@ $fields_inc = array(
 		}
 	}
 
+	// This Function For Create Work Order
+	public function WorkOrder()
+	{
+		if($this->input->post('btnSubmit')=='submit')
+		{
+			// Get All Post Request Data
+			$txtOrderbillno=$this->input->post('txtOrderbillno');
+			$txtItemName=$this->input->post('txtItemName');
+			$txtOrderDetails=$this->input->post('txtOrderDetails');
+			$txtTotalAmount=$this->input->post('txtTotalAmount');
+			$txtTDSpercentage=$this->input->post('txtTDSpercentage');
+			$txtAfterTdsAmount=$this->input->post('txtAfterTdsAmount');
+			$ddlProject=$this->input->post('ddlProject');
+			$ddlContractor=$this->input->post('ddlContractor');
+			$txtDate=$this->input->post('txtDate');
+			$imges = $_FILES["file"]["name"];
+			$exp = explode('.',$imges);
+			$image = $exp[0].time().'.'.$exp[1];
+			$temp = $_FILES["file"]["tmp_name"];
+			$this->base_model->news_file_upload($image,$temp);
 
+			$object=array(
+				'project_id' => $ddlProject,
+				'company_id' => $this->session->userdata('user_id'),
+				'order_bill_no' => $txtOrderbillno,
+				'conductor_id' => $ddlContractor,
+				'order_date' => $txtDate,
+				'order_name' => $txtItemName,
+				'order_details' => $txtOrderDetails,
+				'order_total' => $txtTotalAmount,
+				'order_tds' => 0,
+				'total_after_tds' => 0,
+				'deu_amount' => 0,
+				'invoice_img' => $image
+			);
+
+			// var_dump($object);
+			// die;
+
+			$this->base_model->form_post('tbl_work_order',$object);
+
+			$this->session->set_flashdata('success_log', 'value');
+			redirect('View/Labourworkorder');
+			
+		}
+		else{
+			$data['contractor_list']=$this->db->query('SELECT * FROM tbl_labour_contractor WHERE company_id='.$this->session->userdata('user_id'))->result();
+			$data['project_list']=$this->db->query('SELECT * FROM tbl_project WHERE company_id='.$this->session->userdata('user_id'))->result();
+			$data['head'] = $this->load->view('elements/head','',true);
+			$data['header'] = $this->load->view('elements/header','',true);
+			$data['left_sidebar'] = $this->load->view('elements/left-sidebar','',true);
+			$data['maincontent']=$this->load->view('pages/create_work_order',$data,true);
+			$this->load->view('layout-after-login',$data);   
+		}
+	}
 	
 }

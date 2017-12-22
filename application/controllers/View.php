@@ -541,4 +541,24 @@ $this->load->model('base_model');
 		$this->load->view('layout-after-login',$data);
 		}
 	}
+
+	// This Function For Labour work order
+	public function Labourworkorder()
+	{
+		if($this->session->userdata('is_admin_logged_in')!=1)
+		{
+			redirect(base_url());	
+		}else{
+			$condition=array(
+				'company_id' => $this->session->userdata('user_id')
+			);
+		$data['rows'] = $this->base_model->show_data('tbl_work_order','*',$condition)->result_array();
+		$data['project_list']=$this->db->query('SELECT * FROM tbl_project WHERE company_id='.$this->session->userdata('user_id'))->result();
+		$data['head'] = $this->load->view('elements/head','',true);
+		$data['header'] = $this->load->view('elements/header','',true);
+		$data['left_sidebar'] = $this->load->view('elements/left-sidebar','',true);
+		$data['maincontent']=$this->load->view('pages/pageview/work_order_view',$data,true);
+		$this->load->view('layout-after-login',$data);
+		}
+	}
 }

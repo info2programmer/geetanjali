@@ -57,6 +57,7 @@
       <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>view/Employee"><i class="icon-arrow-right"></i> Labour Details</a></li>
         <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>add/EmployeeWage"><i class="icon-arrow-right"></i> Daily Wages Bill</a></li>
         <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>view/WageReport"><i class="icon-arrow-right"></i> Daily Wages Report</a></li>
+        <li><a class="waves-effect waves-dark" href="<?php echo base_url();?>view/Labourworkorder"><i class="icon-arrow-right"></i> Labour Work Order</a></li>
       </ul>
     </li>
     <li class="nav-level">Deduction</li>
