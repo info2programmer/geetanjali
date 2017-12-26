@@ -354,7 +354,7 @@ public function Bank()
 		$this->db->update('tbl_project', $object);
 
 		// This Function For Indser Deduct Amount History
-		$particulars="Purchase Invoice- ".$txtInvoiceNumber." and deduct amount ".$txtAmount;
+		$particulars="Purchase Invoice- ".$txtInvoiceNumber." and deduct amount ".$txtAmount." Payment Mode :".$this->input->post('ddlPaymentMode')." Cheque-Number : ".$this->input->post('txtChequeNumber')." Bank Name : ".$this->input->post('txtBankName')." Branch-Name : ".$this->input->post('txtBranch')." IFSC Code : ".$this->input->post('txtIFSC');
 		$decuttion=array(
 			'project_id' => $txtProjectID,
 			'company_id' => $this->session->userdata('user_id'),
