@@ -846,7 +846,14 @@ $fields_inc = array(
 				'Project_value' => $this->input->post('txtProjectvalue'),
 				'current_amount' => $this->input->post('txtProjectvalue'),
 				'project_invoice' => $imges,
-				'company_id' => $this->session->userdata('user_id')
+				'company_id' => $this->session->userdata('user_id'),
+				'payment_mode' => $this->input->post('ddlPaymentMode'),
+				'cheque_number' => $this->input->post('txtChequeNumber'),
+				'bank_name' => $this->input->post('txtBankName'),
+				'branch' => $this->input->post('txtBranch'),
+				'IFSC' => $this->input->post('txtIFSC'),
+				'issu_by' => $this->input->post('txtIssueBy'),
+				'account_type' => $this->input->post('txtAcctype')
 			);
 			$service = $this->base_model->form_post('tbl_project',$object);
 			$this->base_model->file_upload2($imges,$temp);

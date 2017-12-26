@@ -58,6 +58,38 @@
                             <div class="md-input-wrapper">
                                 <input type="text" class="md-form-control validate-alphanum required" placeholder="Company-Name" name="txtCompanyName" value=<?php echo $this->session->userdata('username'); ?> readonly id="txtCompanyName"/>
                             </div>
+
+                            <div class="md-input-wrapper">
+                               <select name="ddlPaymentMode" id="ddlPaymentMode" class="md-form-control required">
+                               <option value="" selected hidden>---Select Payment Mode---</option>
+                               <option value="Cash">Cash</option>
+                               <option value="Cheque">Cheque</option>
+                               </select>   
+                            </div>
+
+                            <div class="md-input-wrapper">
+                                <input type="text" class="md-form-control" placeholder="Cheque-Number" name="txtChequeNumber" id="txtChequeNumber"/>
+                            </div>
+
+                            <div class="md-input-wrapper">
+                                <input type="text" class="md-form-control" placeholder="Bank-Name" name="txtBankName" id="txtBankName"/>
+                            </div>
+
+                            <div class="md-input-wrapper">
+                                <input type="text" class="md-form-control" placeholder="Branch-Name" name="txtBranch" id="txtBranch"/>
+                            </div>
+
+                            <div class="md-input-wrapper">
+                                <input type="text" class="md-form-control" placeholder="IFSC-Code" name="txtIFSC" id="txtIFSC"/>
+                            </div>
+
+                            <div class="md-input-wrapper">
+                                <input type="text" class="md-form-control" placeholder="Issue-By" name="txtIssueBy" id="txtIssueBy"/>
+                            </div>
+
+                            <div class="md-input-wrapper">
+                                <input type="text" class="md-form-control" placeholder="Account-Type" name="txtAcctype" id="txtAcctype"/>
+                            </div>
                             
                             <div class="md-group-add-on">
                                     <span class="md-add-on-file">
