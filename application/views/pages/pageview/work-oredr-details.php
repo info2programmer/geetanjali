@@ -3,13 +3,13 @@
     <div class="row">
       <div class="col-sm-12 p-0">
         <div class="main-header">
-          <h4>Purchase Details</h4>
+          <h4>Work Order</h4>
           <ol class="breadcrumb breadcrumb-title breadcrumb-arrow">
             <li class="breadcrumb-item">
               <a href="<?php echo base_url();?>user"><i class="icofont icofont-home"></i></a>
             </li>
             <li class="breadcrumb-item"><a href="<?php echo base_url();?>user">Dashboard</a></li>
-            <li class="breadcrumb-item"><a href="<?php echo base_url();?>View/Purchase">Purchase Details</a></li>
+            <li class="breadcrumb-item"><a href="<?php echo base_url();?>View/Purchase">Workorder Details</a></li>
           </ol>
         </div>
       </div>
@@ -19,7 +19,7 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="card">
-          <div class="card-header"><h5 class="card-header-text"><a href="<?php echo base_url();?>inventory/PurchaseDetails" class="btn btn-flat flat-info txt-info waves-effect waves-light " data-toggle="tooltip" data-placement="top" title=".flat-info">Add New Purchase</a></h5></div>
+          <!-- <div class="card-header"><h5 class="card-header-text"><a href="<?php //echo base_url();?>inventory/PurchaseDetails" class="btn btn-flat flat-info txt-info waves-effect waves-light " data-toggle="tooltip" data-placement="top" title=".flat-info">Add New Purchase</a></h5></div> -->
           <div class="card-block">
             <table id="advanced-table" class="table dt-responsive table-striped table-bordered nowrap">
               <thead>
