@@ -910,6 +910,8 @@ $fields_inc = array(
 			$ddlProject=$this->input->post('ddlProject');
 			$ddlContractor=$this->input->post('ddlContractor');
 			$txtDate=$this->input->post('txtDate');
+			$txtTDSpercentage=$this->input->post('txtTDSpercentage');
+			$txtAfterTdsAmount=$this->input->post('txtAfterTdsAmount');
 			$imges = $_FILES["file"]["name"];
 			$exp = explode('.',$imges);
 			$image = $exp[0].time().'.'.$exp[1];
@@ -925,9 +927,9 @@ $fields_inc = array(
 				'order_name' => $txtItemName,
 				'order_details' => $txtOrderDetails,
 				'order_total' => $txtTotalAmount,
-				'order_tds' => 0,
-				'total_after_tds' => 0,
-				'deu_amount' => 0,
+				'order_tds' => $txtTDSpercentage,
+				'total_after_tds' => $txtAfterTdsAmount,
+				'deu_amount' => $txtAfterTdsAmount,
 				'invoice_img' => $image
 			);
 

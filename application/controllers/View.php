@@ -561,4 +561,26 @@ $this->load->model('base_model');
 		$this->load->view('layout-after-login',$data);
 		}
 	}
+
+	// This Function For View Work Order By Order Id 
+	public function LabourworkorderId($id)
+	{
+		if($this->session->userdata('is_admin_logged_in')!=1)
+		{
+			redirect(base_url());	
+		}else{
+		$data['id']=$id;
+		$data['rows'] = $this->db->query('SELECT * FROM tbl_work_order WHERE id='.$id)->result_array();
+		// $data['invoice']=$this->db->query('SELECT invoice_img FROM td_purchase_bill WHERE p_bill_id='.$pid)->result_array();
+		// $data['status'] =$this->db->query('SELECT * FROM td_purchase_bill WHERE p_bill_id='.$pid)->result_array();
+		
+		$data['head'] = $this->load->view('elements/head','',true);
+		$data['header'] = $this->load->view('elements/header','',true);
+		$data['left_sidebar'] = $this->load->view('elements/left-sidebar','',true);
+		$data['maincontent']=$this->load->view('pages/pageview/work-oredr-details',$data,true);
+		$this->load->view('layout-after-login',$data);
+		}
+	}
+
+	// This Function For Labour Work Order By 
 }

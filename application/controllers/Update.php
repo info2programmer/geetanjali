@@ -386,11 +386,59 @@ public function Bank()
 		
 	}
 
-		// this function for update project_current amount
-	//  function update_project_amount($project_id,$amount){
-		
+	// This Function for Deny Workr Order request
+	public function DenyWorkrequest($id)
+	{
+		$this->db->where('id', $id);
+		$this->db->delete('tbl_work_order');	
+		$this->session->set_flashdata('success_log','Request Delete Successfully');
+		redirect('View/Labourworkorder','refresh');
+			
+	}
 
-	// }
+	// this function update workorder amount
+	public function updateWorkorderAmount()
+	{
+		$txtAmount=$this->input->post('txtAmount');
+		$txtOrderId=$this->input->post('txtOrderId');
+		$txtBaseAmount=$this->input->post('txtBaseAmount');
+		$txtDueAmount=$this->input->post('txtDueAmount');
+		$txtProjectId=$this->input->post('txtProjectId');
+		$txtBill=$this->input->post('txtBill');
+		
+		$current_amt=0;
+
+		if((float)$txtDueAmount<=0){
+			$current_amt=(float)$txtBaseAmount-(float)$txtAmount;
+		}
+		else{
+			$current_amt=(float)$txtDueAmount-(float)$txtAmount;
+		}
+
+		$this->db->where('id',$txtOrderId);
+		$obj=array(
+			'request_status' => 1,
+			'deu_amount' => $current_amt
+		);
+		$this->db->update('tbl_work_order', $obj);
+		
+		// This Function For Indser Deduct Amount History
+		$particulars="Workorder Confirmed With Invoice No - ".$txtBill." and deduct amount ".$current_amt;
+		$decuttion=array(
+			'project_id' => $txtProjectId,
+			'company_id' => $this->session->userdata('user_id'),
+			'amount' => $current_amt,
+			'particulars' => $particulars,
+			'date' => date('Y-m-d'),
+			'time' => date('h:i:sa')
+		);
+
+		$this->base_model->insert_deduction_history($decuttion);
+		
+		$this->session->set_flashdata('success_log', 'Amount Update');
+		
+		redirect('View/LabourworkorderId/'.$txtOrderId);
+	}
 
 	
 	
