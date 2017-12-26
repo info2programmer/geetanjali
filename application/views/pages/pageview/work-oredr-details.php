@@ -78,6 +78,37 @@
                   <input type="hidden" name="txtDueAmount" value="<?php echo $dueAmount ?>">
                   <input type="hidden" name="txtProjectId" value="<?php echo $projectId ?>">
                   <input type="hidden" name="txtBill" value="<?php echo $invoice ?>">
+                  <div class="md-input-wrapper">
+                               <select name="ddlPaymentMode" id="ddlPaymentMode" class="md-form-control required">
+                               <option value="" selected hidden>---Select Payment Mode---</option>
+                               <option value="Cash">Cash</option>
+                               <option value="Cheque">Cheque</option>
+                               </select>   
+                            </div>
+
+                            <div class="md-input-wrapper">
+                                <input type="text" class="md-form-control" placeholder="Cheque-Number" name="txtChequeNumber" id="txtChequeNumber"/>
+                            </div>
+
+                            <div class="md-input-wrapper">
+                                <input type="text" class="md-form-control" placeholder="Bank-Name" name="txtBankName" id="txtBankName"/>
+                            </div>
+
+                            <div class="md-input-wrapper">
+                                <input type="text" class="md-form-control" placeholder="Branch-Name" name="txtBranch" id="txtBranch"/>
+                            </div>
+
+                            <div class="md-input-wrapper">
+                                <input type="text" class="md-form-control" placeholder="IFSC-Code" name="txtIFSC" id="txtIFSC"/>
+                            </div>
+
+                            <div class="md-input-wrapper">
+                                <input type="text" class="md-form-control" placeholder="Issue-By" name="txtIssueBy" id="txtIssueBy"/>
+                            </div>
+
+                            <div class="md-input-wrapper">
+                                <input type="text" class="md-form-control" placeholder="Account-Type" name="txtAcctype" id="txtAcctype"/>
+                            </div>
             <button class="btn btn-success" name="btnSubmit" value="submit"><i class="icofont icofont-ui-check"></i> Accept</button>&nbsp;<?php if($status!=1): ?><a onclick="return confirm('Note: Choosing Deny Will Delete The Selected Purchase Order')" href="<?php echo base_url() ?>Update/DenyWorkrequest/<?php echo $orderId; ?>" class="btn btn-danger"><i class="icofont icofont-ui-close"></i> Deny</a><?php endif; ?>
                 </div>
                 
