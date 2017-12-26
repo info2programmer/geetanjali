@@ -434,6 +434,8 @@ public function Bank()
 		);
 
 		$this->base_model->insert_deduction_history($decuttion);
+
+		$this->update_project_amount($txtProjectId,$current_amt);
 		
 		$this->session->set_flashdata('success_log', 'Amount Update');
 		
