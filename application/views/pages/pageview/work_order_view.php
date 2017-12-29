@@ -44,6 +44,7 @@
                 <td><?php echo $row['order_name']; ?></td>
                 <td><?php echo $row['order_total']; ?></td>               
                 <td>
+                  <a href="<?php echo base_url() ?>View/WorkorderInvoice/<?php echo $row['id'] ?>" target="_blank"><i class="fa fa-print" aria-hidden="true"></i></a>
                 	<a href="<?php echo base_url() ?>news/<?php echo $row['invoice_img'] ?>" target="_blank"><i class="fa fa-file-text" aria-hbrand_idden="true"></i></a>
                 	<!--<a href="<?php echo base_url();?>index.php/delete/Supplier/<?php echo $row['cl_id']; ?>" onclick="return confirm('Are you sure ?');"><i class="zmdi zmdi-delete"></i></a>-->
                   <a href="<?php echo base_url() ?>View/LabourworkorderId/<?php echo $row['id'] ?>" class="btn btn-inverse-primary waves-effect waves-light">See Details</a>

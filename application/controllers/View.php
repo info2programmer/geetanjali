@@ -582,5 +582,14 @@ $this->load->model('base_model');
 		}
 	}
 
-	// This Function For Labour Work Order By 
+	// This Function For Labour Work Order Invoice
+	public function WorkorderInvoice($invoice_id)
+	{
+		$data['id']=$invoice_id;
+		$data['rows'] = $this->db->query('SELECT * FROM tbl_work_order WHERE id='.$invoice_id)->result_array();
+		$data['project_name']=$this->db->query('SELECT project_name FROM tbl_project WHERE project_id='.$data['rows'][0]['project_id'])->result_array();
+		$data['contractor_data']=$this->db->query('SELECT * FROM tbl_labour_contractor WHERE id='.$data['rows'][0]['conductor_id'])->result_array();
+		$this->load->view('pages/invoice/work_order_invoice_view',$data);
+		
+	}
 }
