@@ -423,11 +423,11 @@ public function Bank()
 		$this->db->update('tbl_work_order', $obj);
 		
 		// This Function For Indser Deduct Amount History
-		$particulars="Workorder Confirmed With Invoice No - ".$txtBill." and deduct amount ".$current_amt." Payment Mode :".$this->input->post('ddlPaymentMode')." Cheque-Number : ".$this->input->post('txtChequeNumber')." Bank Name : ".$this->input->post('txtBankName')." Branch-Name : ".$this->input->post('txtBranch')." IFSC Code : ".$this->input->post('txtIFSC');
+		$particulars="Workorder Confirmed With Invoice No - ".$txtBill." and deduct amount ".$txtAmount." Payment Mode :".$this->input->post('ddlPaymentMode')." Cheque-Number : ".$this->input->post('txtChequeNumber')." Bank Name : ".$this->input->post('txtBankName')." Branch-Name : ".$this->input->post('txtBranch')." IFSC Code : ".$this->input->post('txtIFSC');
 		$decuttion=array(
 			'project_id' => $txtProjectId,
 			'company_id' => $this->session->userdata('user_id'),
-			'amount' => $current_amt,
+			'amount' => $txtAmount,
 			'particulars' => $particulars,
 			'date' => date('Y-m-d'),
 			'time' => date('h:i:sa')
